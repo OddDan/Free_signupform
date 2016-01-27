@@ -1,0 +1,24 @@
+{
+  "name": "free_snippets",
+  "description": "Free code snippets",
+  "main": "Gruntfile.js",
+  "authors": [
+    "dan@oddshapes.nl"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.9",
+    "angular": "~1.4.9",
+    "angular-route": "~1.4.9",
+    "bourbon": "~4.2.6"
+  }
+}

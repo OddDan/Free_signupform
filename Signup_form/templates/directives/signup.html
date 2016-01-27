@@ -1,0 +1,90 @@
+	<!-- Header -->
+	<div class="signup-header">
+		<div class="brand-name">
+			{{brand_name}}
+		</div>
+
+		<div class="menu">
+			<ul>
+				<li ng-repeat="item in menuitems track by $index" >
+					<div ng-click="setView(item, $index)" class="menu-btn" ng-class="{'active': menuView == item }">
+						{{item}}
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		<div class="indicator" ng-class="{'animated': anim}" id="indicator">
+		</div>
+	</div>
+
+	<!-- Banner -->
+	<div class="signup-banner">
+		<div class="signup-container">
+			<div class="info-banner">
+				<h2 ng-class="{'fade-out': fadeOut}">
+					{{InfoMessage}}
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="loader-around" ng-show="loading">
+		<div class="housing">
+			<div class="showbox">
+			  	<div class="loader">
+				    <svg class="circular" viewBox="25 25 50 50">
+				      	<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+				    </svg>
+				    <span>
+				    	please wait.
+				    </span>
+			  	</div>
+			</div> 
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="signup-content">
+		<div class="signup-container">
+			<form name="moneyForm" novalidate autocomplete="off">
+				<div class="input-field">
+					<input type="text" id="name" class="form-input" ng-model="formData.name" name="name" autocomplete="off" required ng-class="{'invalid': moneyForm.name.$invalid  && (moneyForm.name.$touched || submitted)}" ng-blur="setInfo('name', formData.name);">
+					<label for="name" ng-class="{'final': formData.name.length > 0}">
+						What's your name?
+					</label>
+					<div class="error-text" ng-show="moneyForm.name.$invalid && (moneyForm.name.$touched || submitted)">
+						your full name please
+					</div>
+				</div>
+				<div class="input-field">
+					<input type="text" id="city" class="form-input" ng-model="formData.city" name="city" autocomplete="off" required ng-class="{'invalid': moneyForm.city.$invalid && (moneyForm.city.$touched || submitted)}" ng-blur="setInfo('city', formData.city);">
+					<label for="city" ng-class="{'final': formData.city.length > 0}">
+						Where do you live?
+					</label>
+
+					<div class="error-text" ng-show="moneyForm.city.$invalid && (moneyForm.city.$touched || submitted)">
+						your city name
+					</div>
+				</div>
+				<div class="input-field">
+					<input type="text" id="email" class="form-input" ng-model="formData.email" name="email" autocomplete="off" required ng-class="{'invalid': moneyForm.email.$invalid && (moneyForm.email.$touched || submitted)}" ng-blur="setInfo('email', formData.email);">
+					<label for="email" ng-class="{'final': formData.email.length > 0}">
+						What's your best e-mail?
+					</label>
+					<div class="error-text" ng-show="moneyForm.email.$invalid && (moneyForm.email.$touched || submitted)">
+						your correct e-mail
+					</div>
+				</div>
+				<p>
+					By pressing <strong>agree</strong> you agree to pay us $ 10.000 
+					for doing absolutely nothing.
+				</p>
+
+				<div class="buttons">
+					<span class="btn disagree">DISAGREE</span>
+					<span ng-click="submitForm(formData, moneyForm.$valid)" class="btn agree">AGREE</span>
+				</div>
+			</form>
+		</div>
+	</div>
